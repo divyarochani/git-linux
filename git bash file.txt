@@ -1,0 +1,147 @@
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~
+$ mkdir december
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~
+$ cd december
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december
+$ git init
+Initialized empty Git repository in C:/Users/hp/december/.git/
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ vi dec.txt
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ cat dec.txt
+hie
+hello
+divya rochani
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git add dec.txt
+warning: in the working copy of 'dec.txt', LF will be replaced by CRLF the next time Git touches it
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git commit -m "dec.txt added"
+[master (root-commit) b9a8d65] dec.txt added
+ 1 file changed, 3 insertions(+)
+ create mode 100644 dec.txt
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git log --oneline
+b9a8d65 (HEAD -> master) dec.txt added
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ echo "hey" > test.txt
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ ls
+dec.txt  test.txt
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git add test.txt
+warning: in the working copy of 'test.txt', LF will be replaced by CRLF the next time Git touches it
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git commit -m "test.txt added now"
+[master 2fad2ee] test.txt added now
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git log --oneline
+2fad2ee (HEAD -> master) test.txt added now
+b9a8d65 dec.txt added
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git tag "version 1.0" b9a8d65
+fatal: 'version 1.0' is not a valid tag name.
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git tag "version1.0" b9a8d65
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git tag "version2.0" 2fad2ee
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git log --online
+fatal: unrecognized argument: --online
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git log --oneline
+2fad2ee (HEAD -> master, tag: version2.0) test.txt added now
+b9a8d65 (tag: version1.0) dec.txt added
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git remote add origin https://github.com/divyarochani/git-linux.git
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (master)
+$ git branch -M main
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$ git push -u origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 501 bytes | 167.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/divyarochani/git-linux.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$ git push --tags
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/divyarochani/git-linux.git
+ * [new tag]         version1.0 -> version1.0
+ * [new tag]         version2.0 -> version2.0
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$ git pull origin https://github.com/divyarochani/git-linux/tree/divyarochani-patch-1
+fatal: invalid refspec 'https://github.com/divyarochani/git-linux/tree/divyarochani-patch-1'
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$ git pull origin divyarochani-patch-1
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 19.76 KiB | 778.00 KiB/s, done.
+From https://github.com/divyarochani/git-linux
+ * branch            divyarochani-patch-1 -> FETCH_HEAD
+ * [new branch]      divyarochani-patch-1 -> origin/divyarochani-patch-1
+Updating 2fad2ee..f09f1d1
+Fast-forward
+ task 20nov.docx | Bin 0 -> 20564 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 task 20nov.docx
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$ git merge divyarochani-patch-1
+merge: divyarochani-patch-1 - not something we can merge
+
+Did you mean this?
+        origin/divyarochani-patch-1
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$ git merge origin/divyarochani-patch-1
+Already up to date.
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$ ls
+ dec.txt  'task 20nov.docx'   test.txt
+
+hp@LAPTOP-IGGJ7KIQ MINGW64 ~/december (main)
+$
+
